@@ -16,6 +16,8 @@ test with ipynb
 --------
 Useful info
 
+docker load -i fastapi-upload-app.tar #run the image with docker 
+
 sudo docker run -d --name fastapi-app -p 8000:8000 fastapi-upload-app    # this starts the image running the container has name fastapi-app and is detached from the terminal
 
 sudo docker exec -it fastapi-app /bin/bash    # this open in cli a bash with the structure inside the image folder
