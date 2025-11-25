@@ -22,7 +22,7 @@ rclone copy fastapi-upload-app.tar remote:
 
 Download the image : https://drive.google.com/drive/folders/1TqqyAafeK5z5DvfzdZ1knizYshg8EZ8O
 
-docker load -i fastapi-upload-app.tar #run the image with docker 
+docker image load -i fastapi-upload-app.tar #run the image with docker 
 
 sudo docker run -d --name fastapi-app -p 8000:8000 fastapi-upload-app    # this starts the image running the container has name fastapi-app and is detached from the terminal
 
