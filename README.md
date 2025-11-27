@@ -1,9 +1,10 @@
+This is for testing the notebooks in production phase 
+
 python3.10 -m venv venv
 
 source venv/bin/activate
 
 pip install requests
-
 
 ------
 
@@ -12,28 +13,39 @@ sudo docker build -t fastapi-upload-app .
 sudo docker run -p 8000:8000 fastapi-upload-app
 -----
 test with ipynb
-
 --------
-Useful info
+Useful info for saving .tar image file in googgle drive
 
 sudo docker save -o ~/Downloads/fastapi-upload-app.tar fastapi-upload-app
 chmod 777 fastapi-upload-app.tar 
 rclone copy fastapi-upload-app.tar remote:
 
+
+----- INOV setup with example
+In this process docker and curl (on terminal) should be downloaded
+Also in case of organazation restriction the computer that runs the dockerized API needs to have access to huggingface and be able to download RELIK model:
+
 Download the image : https://drive.google.com/drive/folders/1TqqyAafeK5z5DvfzdZ1knizYshg8EZ8O
 
-docker image load -i fastapi-upload-app.tar #run the image with docker 
+docker image load -i fastapi-upload-app.tar #run the image with docker (Be careful to add the corect path in this command)
 
-sudo docker run -d --name fastapi-app -p 8000:8000 fastapi-upload-app    # this starts the image running the container has name fastapi-app and is detached from the terminal
+sudo docker run -d --name fastapi-app -p 8000:8000 fastapi-upload-app    # this starts the image running the container has name fastapi-app and is detached from the terminal and maps the image port
 
-sudo docker exec -it fastapi-app /bin/bash    # this open in cli a bash with the structure inside the image folder
+sudo docker exec fastapi-app sh -c "rm -f /app/uploads/*"   #this deletes every previous file inside the uploads folder on the image
 
- sudo docker exec fastapi-app sh -c "rm -f /app/uploads/*"   #this deletes every previous file inside the uploads folder
+curl -X POST http://127.0.0.1:8000/upload -F "files=@test.txt" -F "files=@test1.txt" -F "files=@/home/kpanag/Downloads/t.txt"    # this uploads the files inside the container and uploads directory
 
- curl -X POST http://127.0.0.1:8000/upload -F "files=@test.txt" -F "files=@test1.txt" -F "files=@/home/kpanag/Downloads/t.txt"    # this uploads the files inside the container and uploads directory
+curl -X GET http://127.0.0.1:8000/getResults  # this runs relik on each uploaded file
 
- curl -X GET http://127.0.0.1:8000/getResults  # this runs relik on each uploaded file
+curl -X GET http://127.0.0.1:8000/getAllRelationTypes   #this returns all available relations not implemented yet
 
- curl -X GET http://127.0.0.1:8000/getAllRelationTypes   #this returns all available relations not implemented yet
+curl -X GET http://127.0.0.1:8000/getAllEntityTypes   #this return all entity types not implemented yet 
 
- curl -X GET http://127.0.0.1:8000/getAllEntityTypes   #this return all entity types not implemented yet 
+
+
+
+Additional info
+
+sudo docker exec -it fastapi-app /bin/bash    # this open in cli a bash with the structure inside the image folder (You are propably not going to need this command! it is to verify the files are uploaded correctly inside the containder and uploads folder)
+
+For windows setup the only thing that changes is that sudo should be removed from all commands and curl should be replaced with curl.exe
