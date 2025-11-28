@@ -23,7 +23,8 @@ rclone copy fastapi-upload-app.tar remote:
 
 ----- INOV setup with example on Linux based terminal
 In this process docker and curl (on terminal) should be downloaded
-Also in case of organazation restriction the computer that runs the dockerized API needs to have access to huggingface and be able to download RELIK model:
+Also in case of organazation restriction the computer that runs the dockerized API needs to have access to huggingface and be able to download RELIK model: https://huggingface.co/sapienzanlp/relik-relation-extraction-nyt-large  #do not download it the code does
+It has been tested on .txt files (You can see the files inside the container by doing cat test.txt and cat test1.txt) after sudo docker exec -it fastapi-app /bin/bash
 
 1) Download the image : https://drive.google.com/drive/folders/1TqqyAafeK5z5DvfzdZ1knizYshg8EZ8O
 
@@ -45,6 +46,8 @@ Also in case of organazation restriction the computer that runs the dockerized A
 
 
 Additional info
+
+sudo docker start fastapi-app # if already you have created the container just run it 
 
 sudo docker exec -it fastapi-app /bin/bash    # this open in cli a bash with the structure inside the image folder (You are propably not going to need this command! it is to verify the files are uploaded correctly inside the containder and uploads folder)
 
