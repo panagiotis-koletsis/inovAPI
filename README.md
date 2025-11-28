@@ -49,6 +49,8 @@ Additional info
 
 sudo docker start fastapi-app # if already you have created the container just run it 
 
+sudo docker stop fastapi-app # Stop the container
+
 sudo docker exec -it fastapi-app /bin/bash    # this open in cli a bash with the structure inside the image folder (You are propably not going to need this command! it is to verify the files are uploaded correctly inside the containder and uploads folder)
 
 For windows based terminal the only thing that changes is that sudo should be removed from all commands and curl should be replaced with curl.exe
