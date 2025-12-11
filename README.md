@@ -17,7 +17,9 @@ test with ipynb
 Useful info for saving .tar image file in googgle drive
 
 sudo docker save -o ~/Downloads/fastapi-upload-app.tar fastapi-upload-app
+
 chmod 777 fastapi-upload-app.tar 
+
 rclone copy fastapi-upload-app.tar remote:
 
 
