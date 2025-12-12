@@ -20,7 +20,7 @@ sudo docker save -o ~/Downloads/fastapi-upload-app.tar fastapi-upload-app
 
 chmod 777 fastapi-upload-app.tar 
 
-rclone copy fastapi-upload-app.tar remote:
+rclone copy fastapi-upload-app.tar remote: -v
 
 
 ----- INOV setup with example on Linux based terminal
