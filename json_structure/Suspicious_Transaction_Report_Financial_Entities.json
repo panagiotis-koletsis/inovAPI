@@ -1,0 +1,49 @@
+{
+  "document_title": "Suspicious Transaction Report – Financial Entities",
+  "Reporting Entity": "",
+  "Date": "",
+  "Ref": "",
+  "Individual Participants": {
+    "Name": "",
+    "Date of Birth": "",
+    "Doc Id": "",
+    "Num": "",
+    "Tax ID Num (NIF)": "",
+    "Address": "",
+    "Phone Num": "",
+    "Nationality": "",
+    "Occupation": "",
+    "Type of Participant": ""
+  },
+  "Corporate Participant": {
+    "Name": "",
+    "Company Tax ID Num (NIPS)": "",
+    "Business Activity": "",
+    "Address": "",
+    "Phone Num": "",
+    "Type of Participant": "",
+    "Representative": ""
+  },
+  "Account / Insurance Policy Identification": {
+    "Num": "",
+    "Type": "",
+    "Branch": "",
+    "Opening Date": ""
+  },
+  "Transaction Description": {
+    "Transaction": "",
+    "Date/Period": "",
+    "Account / Currency": "",
+    "Type of Transaction": "",
+    "Origin – Destination (Countries)": "",
+    "Sending Bank": "",
+    "Sending Acc Num": "",
+    "Receiving Bank": "",
+    "Receiving Acc Num": ""
+  },
+  "Reason for Suspicion": "",
+  "List of Attached Documents": "",
+  "Remarks": "",
+  "The Reporting Person": ""
+}
+

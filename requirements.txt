@@ -28,3 +28,9 @@ relik==1.0.7
 
 lightning==2.3.3
 
+
+
+
+
+pdfplumber==0.11.8
+langchain-ollama==1.0.0
